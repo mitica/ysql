@@ -1,0 +1,22 @@
+SELECT:
+  DISTINCT: true
+  COLUMNS:
+    - COLUMN:
+        name: id
+    - COLUMN:
+        name: d.name
+        as: d_name
+
+FROM:
+  QUERY:
+    SELECT:
+      COLUMN:
+        name: f.docid
+    FROM:
+      TABLE:
+        name: files
+        as: f
+  as: d
+
+LIMIT: 10
+OFFSET: 5

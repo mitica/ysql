@@ -1,0 +1,16 @@
+SELECT:
+  DISTINCT: true
+  COLUMNS:
+    - COLUMN:
+        name: id
+    - COLUMN:
+        name: 'd.name'
+        as: 'd_name'
+
+FROM:
+  - TABLE:
+      name: 'documents'
+      as: 'd'
+
+LIMIT: 10
+OFFSET: 5
