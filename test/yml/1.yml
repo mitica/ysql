@@ -4,13 +4,38 @@ SELECT:
     - COLUMN:
         name: id
     - COLUMN:
-        name: 'd.name'
-        as: 'd_name'
+        name: d.name
+        as: d_name
+    - EXPRESSION:
+        operator: '+'
+        left:
+          VALUE: 1
+        right:
+          VALUE: 2
+        as: three
 
 FROM:
   - TABLE:
-      name: 'documents'
-      as: 'd'
+      name: documents
+      as: d
+WHERE:
+  - CONDITION:
+      relation: OR
+      EXPRESSION:
+        left:
+          VALUE: 12
+        operator: eq
+        right:
+          COLUMN:
+            name: id2
+  - CONDITION:
+      EXPRESSION:
+        left:
+          COLUMN:
+            name: id
+        operator: in
+        right:
+          PARAM:
 
 LIMIT: 10
 OFFSET: 5

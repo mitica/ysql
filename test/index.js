@@ -13,5 +13,5 @@ var json2sql = new Json2Sql();
 
 json2sql.load(json);
 
-console.log(json2sql.toSql().text);
+console.log(json2sql.toSql());
 //console.log(query._type);
