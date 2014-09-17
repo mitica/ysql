@@ -3,13 +3,20 @@ SELECT:
   COLUMNS:
     - COLUMN:
         name: id
+    - FUNC:
+        name: COUNT
+        PARAMS:
+          COLUMN:
+            name: price
+        as: total
     - COLUMN:
         name: d.name
         as: d_name
     - EXPRESSION:
-        operator: '+'
+        operator: +
         left:
-          VALUE: 1
+          PARAM:
+            name: p1
         right:
           VALUE: 2
         as: three
@@ -36,6 +43,18 @@ WHERE:
         operator: in
         right:
           PARAM:
+            name: p1
+
+ORDER:
+  - COLUMN:
+      name: id
+  - COLUMN:
+      name: name
+      direction: DESC
+
+GROUP:
+  - COLUMN:
+      name: id
 
 LIMIT: 10
 OFFSET: 5
