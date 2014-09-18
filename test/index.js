@@ -1,17 +1,15 @@
 'use strict';
 
-var Json2Sql = require('../lib');
-var yaml = require('js-yaml');
+var Parser = require('../lib').Parser;
+var parser = new Parser();
 var fs = require('fs');
 
 var testname = '1';
 if (process.argv.length > 2) testname = process.argv[2];
 
-var json = yaml.safeLoad(fs.readFileSync(__dirname + '/yml/' + testname + '.yml', 'utf8'));
+var ysql = fs.readFileSync(__dirname + '/yml/' + testname + '.yml', 'utf8');
 
-var json2sql = new Json2Sql();
+parser.load(ysql);
 
-json2sql.load(json);
-
-console.log(json2sql.toSql());
+console.log(parser.toSql());
 //console.log(query._type);

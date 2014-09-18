@@ -1,5 +1,5 @@
 {
-  "name": "json2sql",
+  "name": "ysql",
   "version": "0.0.1",
   "description": "JSON/YAML to SQL convertor",
   "main": "lib/index.js",
@@ -8,9 +8,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/Mitica/json2sql.git"
+    "url": "https://github.com/Mitica/ysql.git"
   },
   "keywords": [
+    "ysql",
     "json2sql",
     "yaml2sql",
     "sql",
@@ -20,9 +21,9 @@
   "author": "Dumitru Cantea",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Mitica/json2sql/issues"
+    "url": "https://github.com/Mitica/ysql/issues"
   },
-  "homepage": "https://github.com/Mitica/json2sql",
+  "homepage": "https://github.com/Mitica/ysql",
   "devDependencies": {},
   "dependencies": {
     "js-yaml": "^3.2.2",

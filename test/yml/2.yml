@@ -6,17 +6,16 @@ SELECT:
     - COLUMN:
         name: d.name
         as: d_name
-
-FROM:
-  QUERY:
+  FROM:
     SELECT:
-      COLUMN:
-        name: f.docid
-    FROM:
-      TABLE:
-        name: files
-        as: f
-  as: d
+      COLUMNS:
+        COLUMN:
+          name: f.docid
+      FROM:
+        TABLE:
+          name: files
+          as: f
+      as: d
 
-LIMIT: 10
-OFFSET: 5
+  LIMIT: 10
+  OFFSET: 5

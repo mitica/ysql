@@ -21,40 +21,40 @@ SELECT:
           VALUE: 2
         as: three
 
-FROM:
-  - TABLE:
-      name: documents
-      as: d
-WHERE:
-  - CONDITION:
-      relation: OR
-      EXPRESSION:
-        left:
-          VALUE: 12
-        operator: eq
-        right:
-          COLUMN:
-            name: id2
-  - CONDITION:
-      EXPRESSION:
-        left:
-          COLUMN:
-            name: id
-        operator: in
-        right:
-          PARAM:
-            name: p1
+  FROM:
+    - TABLE:
+        name: documents
+        as: d
+  WHERE:
+    - CONDITION:
+        relation: OR
+        EXPRESSION:
+          left:
+            VALUE: 12
+          operator: eq
+          right:
+            COLUMN:
+              name: id2
+    - CONDITION:
+        EXPRESSION:
+          left:
+            COLUMN:
+              name: id
+          operator: in
+          right:
+            PARAM:
+              name: p1
 
-ORDER:
-  - COLUMN:
-      name: id
-  - COLUMN:
-      name: name
-      direction: DESC
+  ORDER BY:
+    - COLUMN:
+        name: id
+    - COLUMN:
+        name: name
+        direction: DESC
 
-GROUP:
-  - COLUMN:
-      name: id
+  GROUP BY:
+    - COLUMN:
+        name: id
 
-LIMIT: 10
-OFFSET: 5
+  LIMIT: 10
+  OFFSET: 5
