@@ -1,21 +1,10 @@
 SELECT:
-  DISTINCT: true
   COLUMNS:
     - COLUMN:
         name: id
     - COLUMN:
-        name: d.name
-        as: d_name
+        name: name
+        as: title
   FROM:
-    SELECT:
-      COLUMNS:
-        COLUMN:
-          name: f.docid
-      FROM:
-        TABLE:
-          name: files
-          as: f
-      as: d
-
-  LIMIT: 10
-  OFFSET: 5
+    TABLE:
+      name: docs
