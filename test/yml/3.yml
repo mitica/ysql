@@ -1,0 +1,29 @@
+
+SELECT:
+  COLUMN: '*'
+  FROM: documents
+
+  WHERE:
+  
+    - COLUMN: section
+    - OPERATOR: =
+    - VALUE: news
+
+    - OPERATOR: AND
+
+    - COLUMN: label
+    - OPERATOR: =
+    - VALUE: feature
+
+    - OPERATOR: AND
+
+    - COLUMN: status
+    - OPERATOR: =
+    - VALUE: published
+
+  ORDER BY:
+    COLUMN:
+      name: createdAt
+      direction: DESC
+
+  LIMIT: 1
