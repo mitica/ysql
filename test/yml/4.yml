@@ -1,0 +1,33 @@
+###
+# select latest news
+###
+
+SELECT:
+  COLUMNS:
+    - COLUMN: 'id'
+    - COLUMN: 'title'
+    - COLUMN: 'slug'
+    - COLUMN: 'summary'
+    - COLUMN: 'imageId'
+    - COLUMN: 'imageExtension'
+    - COLUMN: 'publishedAt'
+  FROM: documents
+
+  WHERE:
+
+    - COLUMN: section
+    - OPERATOR: =
+    - VALUE: news
+
+    - OPERATOR: AND
+
+    - COLUMN: status
+    - OPERATOR: =
+    - VALUE: published
+
+  ORDER BY:
+    COLUMN:
+      name: publishedAt
+      direction: DESC
+
+  LIMIT: 10
