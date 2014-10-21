@@ -1,0 +1,53 @@
+###
+# select latest news by category slug
+###
+
+SELECT:
+  DISTINCT:
+  COLUMNS:
+    - COLUMN: 'doc.id'
+    - COLUMN: 'doc.section'
+    - COLUMN: 'doc.type'
+    - COLUMN: 'doc.title'
+    - COLUMN: 'doc.slug'
+    - COLUMN: 'doc.summary'
+    - COLUMN: 'doc.imageId'
+    - COLUMN: 'doc.imageExtension'
+    - COLUMN: 'doc.publishedAt'
+  FROM:
+    - TABLE:
+        name: Documents
+        as: doc
+    - JOIN: INNER
+    - TABLE:
+        name: DocumentGroupItems
+        as: dgi
+    - ON:
+        - COLUMN: dgi.documentId
+        - OPERATOR: =
+        - COLUMN: doc.id
+
+  WHERE:
+
+    - COLUMN: doc.section
+    - OPERATOR: =
+    - VALUE: news
+
+    - OPERATOR: AND
+
+    - COLUMN: doc.status
+    - OPERATOR: =
+    - VALUE: published
+
+    - OPERATOR: AND
+
+    - COLUMN: dgi.groupSlug
+    - OPERATOR: =
+    - PARAM: category
+
+  ORDER BY:
+    COLUMN:
+      name: doc.publishedAt
+      direction: DESC
+
+  LIMIT: 10
