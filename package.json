@@ -1,6 +1,6 @@
 {
   "name": "ysql",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "JSON/YAML to SQL convertor",
   "main": "lib/index.js",
   "scripts": {
